@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.StringJoiner;
-
+// Hibernate + JPA +  Spring DATA  = Spring Data JPA
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
