@@ -13,7 +13,7 @@
     <!-- Unified form for Add or Update -->
     <form th:action="${country.id} != null ? @{/country} : @{/country}"
           th:object="${country}" method="post" class="row g-3 mb-4">
-        <input type="hidden" th:if="${country.id != null}" name="_method" value="put"/>
+        <input type="hidden" th:if="${country.id != null}" name="_method" value="patch"/>
         <input type="hidden" th:field="*{id}"/>
 
         <div class="col-auto">

@@ -27,11 +27,18 @@ public class CountryController {
         return "redirect:/country";
     }
 
-    @PutMapping("/country")
-    public String updateCountryPut(@ModelAttribute Country country) {
+//    @PutMapping("/country")
+//    public String updateCountryPut(@ModelAttribute Country country) {
+//        countryRepository.save(country);
+//        return "redirect:/country";
+//    }
+
+    @PatchMapping("/country")
+    public String updateCountryPatch(@ModelAttribute Country country) {
         countryRepository.save(country);
         return "redirect:/country";
     }
+
 
     @GetMapping("/country/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
