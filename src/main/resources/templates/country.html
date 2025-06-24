@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Manage Countries</h2>
+
+    <!-- Unified form for Add or Update -->
+    <form th:action="${country.id} != null ? @{/country} : @{/country}"
+          th:object="${country}" method="post" class="row g-3 mb-4">
+        <input type="hidden" th:if="${country.id != null}" name="_method" value="put"/>
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="col-auto">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Country name" required/>
+        </div>
+        <div class="col-auto">
+            <button type="submit"
+                    th:text="${country.id != null} ? 'Update Country' : 'Add Country'"
+                    class="btn"
+                    th:classappend="${country.id != null} ? 'btn-warning' : 'btn-primary'">
+            </button>
+        </div>
+    </form>
+
+    <!-- Table of countries -->
+    <table class="table table-bordered table-striped">
+        <thead class="table-light">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th style="width: 160px;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${countries}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.name}"></td>
+            <td>
+                <a th:href="@{'/country/' + ${c.id}}" class="btn btn-sm btn-secondary me-1">Edit</a>
+                <a th:href="@{'/country/delete/' + ${c.id}}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
