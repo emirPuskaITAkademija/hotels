@@ -21,6 +21,7 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    //http://localhost:8082/login   GET
     @GetMapping("/login")
     public String showLoginPage() {
         return "login";

@@ -11,7 +11,7 @@
   <h2 class="mb-4 text-center">Manage Towns</h2>
 
   <form th:action="@{/town}" th:object="${town}" method="post" class="row g-3 mb-4">
-    <input type="hidden" th:if="${town.id != null}" name="_method" value="patch"/>
+    <input type="hidden" th:if="${town.id != null}" name="_method" value="put"/>
     <input type="hidden" th:field="*{id}"/>
 
     <div class="col-auto">

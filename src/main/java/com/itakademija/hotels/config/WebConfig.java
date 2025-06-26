@@ -11,8 +11,8 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
  *
  * Šta će uraditi ?
  * 1. Pogledaće da li HTTP POST request sadrži
- * <input type="hidden" th:if="${country.id != null}" name="_method" value="put"/>
- * 2. Ukoliko sadrži _method sa value = PUT umjesto da gađamo metodu koja odgovara na POST
+ * <input type="hidden" th:if="${country.id != null}" name="_method" value="put ili patch"/>
+ * 2. Ukoliko sadrži _method sa value = PUT/PATCH umjesto da gađamo metodu koja odgovara na POST
  *    ovaj filter će nas preusmjeriti na metodu koja odgovara na PUT zahtjev
  */
 @Configuration
